@@ -24,7 +24,7 @@ class ProjectTransaction extends Model {
     this.belongsTo(models.File, { foreignKey: 'file_id', as: 'file' });
     this.belongsTo(models.TransactionType, {
       foreignKey: 'project_id',
-      as: 'TransactionType',
+      as: 'transactionType',
     });
   }
 }

@@ -1,18 +1,7 @@
 import Notification from '../schemas/Notification';
-import User from '../models/User';
 
 class NotificationController {
   async index(req, res) {
-    const checkisProvider = await User.findOne({
-      where: { id: req.userId, provider: true },
-    });
-
-    if (!checkisProvider) {
-      return res
-        .status(400)
-        .json({ error: 'Only providers can load notifications' });
-    }
-
     const notifications = await Notification.find({
       user: req.userId,
     })
