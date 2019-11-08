@@ -13,6 +13,7 @@ import ScheduleController from './app/controllers/ScheduleController';
 import NotificationController from './app/controllers/NotificationController';
 import ProjectTransactionController from './app/controllers/ProjectTransactionController';
 import DashboardController from './app/controllers/DashboardController';
+import AverageCustController from './app/controllers/AverageCustController';
 
 import validateUserStore from './app/validators/UserStore';
 import validateUserUpdate from './app/validators/UserUpdate';
@@ -51,7 +52,8 @@ routes.post('/projects', validateProjectStore, ProjectController.store);
 routes.put('/projects/:id', validateProjectUpdate, ProjectController.update);
 routes.delete('/projects/:id', ProjectController.delete);
 
-routes.get('/dashboards', DashboardController.index);
+routes.get('/dashboard', DashboardController.index);
+routes.get('/averageCust', AverageCustController.index);
 
 routes.post('/files', upload.single('file'), FileController.store);
 routes.get('/files', FileController.index);
