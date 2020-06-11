@@ -29,9 +29,10 @@ routes.post(
   SessionController.store
 );
 
-routes.use('/', (req,res)=>{
+routes.get('/', (req,res)=>{
   return res.json({message: 'running'})
 })
+
 routes.use(authMiddleware);
 
 routes.get('/users', UserController.index);
