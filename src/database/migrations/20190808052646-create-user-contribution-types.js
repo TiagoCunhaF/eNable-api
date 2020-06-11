@@ -10,14 +10,10 @@ module.exports = {
       user_id: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       },
       contribution_id: {
         type: Sequelize.INTEGER,
         references: { model: 'contribution_types', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       },
       created_at: {
         type: Sequelize.DATE,

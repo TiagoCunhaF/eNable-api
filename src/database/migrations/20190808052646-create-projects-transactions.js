@@ -10,20 +10,14 @@ module.exports = {
       project_id: {
         type: Sequelize.INTEGER,
         references: { model: 'projects', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'CASCADE',
       },
       user_id: {
         type: Sequelize.INTEGER,
         references: { model: 'users', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
       },
       file_id: {
         type: Sequelize.INTEGER,
         references: { model: 'files', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
         allowNull: true,
       },
       value: {
@@ -32,9 +26,7 @@ module.exports = {
       },
       transition_types_id: {
         type: Sequelize.INTEGER,
-        references: { model: 'transition_types', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL',
+        references: { model: 'transaction_types', key: 'id' },
         allowNull: true,
       },
       created_at: {
