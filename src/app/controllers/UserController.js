@@ -1,6 +1,5 @@
 import User from '../models/User';
 import File from '../models/File';
-import Cache from '../../lib/Cache';
 
 class UserController {
   async index(req, res) {

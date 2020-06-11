@@ -1,9 +1,9 @@
-import Notification from '../schemas/Notification';
+import Notification from '../models/Notification';
 
 class NotificationController {
   async index(req, res) {
     const notifications = await Notification.find({
-      user: req.userId,
+      user_id: req.userId,
     })
       .sort({ createdAt: 'desc' })
       .limit(20);

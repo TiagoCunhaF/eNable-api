@@ -3,9 +3,6 @@ import './bootstrap';
 import express from 'express';
 import cors from 'cors';
 import helmet from 'helmet';
-import redis from 'redis';
-import RateLimit from 'express-rate-limit';
-import RateLimitRedis from 'rate-limit-redis';
 import path from 'path';
 import Youch from 'youch';
 import * as Sentry from '@sentry/node';
@@ -33,20 +30,6 @@ class App {
       '/files',
       express.static(path.resolve(__dirname, '..', 'temp', 'uploads'))
     );
-    if (process.env.NODE_ENV !== 'development') {
-      this.server.use(
-        new RateLimit({
-          store: new RateLimitRedis({
-            client: redis.createClient({
-              host: process.env.REDIS_HOST,
-              port: process.env.REDIS_PORT,
-            }),
-          }),
-          windowMs: 1000 * 60 * 1,
-          max: 10000,
-        })
-      );
-    }
   }
 
   routes() {

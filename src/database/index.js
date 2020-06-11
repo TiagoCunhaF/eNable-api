@@ -7,6 +7,7 @@ import Project from '../app/models/Project';
 import TransactionType from '../app/models/TransactionType';
 import ContributionType from '../app/models/ContributionType';
 import ProjectTransaction from '../app/models/ProjectTransaction';
+import Notification from '../app/models/Notification';
 
 import datatabaseConfig from '../config/database';
 
@@ -17,11 +18,11 @@ const models = [
   ProjectTransaction,
   TransactionType,
   ContributionType,
+  Notification,
 ];
 class Database {
   constructor() {
     this.init();
-    this.mongo();
   }
 
   init() {
@@ -31,12 +32,6 @@ class Database {
       .map(model => model.associate && model.associate(this.connection.models));
   }
 
-  mongo() {
-    this.mongoConnection = mongoose.connect(process.env.MONGO_URL, {
-      useNewUrlParser: true,
-      useFindAndModify: true,
-    });
-  }
 }
 
 export default new Database();
