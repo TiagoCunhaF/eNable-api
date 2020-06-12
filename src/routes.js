@@ -49,7 +49,7 @@ routes.get('/dashboard', DashboardController.index);
 routes.get('/averageCust', AverageCustController.index);
 
 routes.post('/files', upload.single('file'), FileController.store);
-routes.get('/files', FileController.index);
+//routes.get('/files', FileController.index);
 
 routes.get('/notifications', NotificationController.index);
 routes.put('/notifications/:id', NotificationController.update);
